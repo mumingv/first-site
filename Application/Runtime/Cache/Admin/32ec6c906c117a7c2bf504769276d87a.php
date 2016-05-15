@@ -34,7 +34,7 @@
 </style>
 <div class="s_center container col-lg-6 ">
 
-    <form class="form-signin" enctype="multipart/form-data"  method="post">
+    <form class="form-signin" enctype="multipart/form-data" action="/index.php?m=admin&c=login&a=check" method="post">
       <h2 class="form-signin-heading">请登录</h2>
       <label class="sr-only">用户名</label>
       <input type="text"  class="form-control" name="username" placeholder="请填写用户名" required autofocus>
