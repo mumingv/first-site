@@ -17,8 +17,10 @@ var login = {
         // 执行异步请求
         var url = "/index.php?m=admin&c=login&a=check";
         var data = {'username':username, 'password':password};
-        $.post(url, data, function(){
-            
-        });
+        $.post(url, data, function(result){
+            if (result.status == 0) {
+                return dialog.error(result.message);
+            }
+        }, 'json');
     }
 }
