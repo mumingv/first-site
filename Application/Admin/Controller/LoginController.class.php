@@ -13,7 +13,8 @@ class LoginController extends Controller {
     }
 
     public function check() {
-        echo "check_success";
+        //echo "check_success";
+        print_r($_POST);
     }
 
 }
