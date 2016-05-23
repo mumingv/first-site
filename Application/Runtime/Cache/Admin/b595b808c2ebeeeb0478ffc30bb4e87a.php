@@ -63,7 +63,7 @@
        
         <li class="divider"></li>
         <li>
-          <a href="/admin.php?c=login&a=loginout"><i class="fa fa-fw fa-power-off"></i> 退出</a>
+          <a href="/index.php?m=admin&c=login&a=loginout"><i class="fa fa-fw fa-power-off"></i> 退出</a>
         </li>
       </ul>
     </li>
@@ -82,6 +82,7 @@
   </div>
   <!-- /.navbar-collapse -->
 </nav>
+
 
 <div id="page-wrapper">
 

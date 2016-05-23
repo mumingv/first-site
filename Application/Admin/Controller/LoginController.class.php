@@ -8,7 +8,10 @@ use Think\Controller;
 class LoginController extends Controller {
 
     public function index(){
-
+        // 如果用户已经登陆了，则直接跳过登陆页面直接跳转到后台管理页面
+        if (session('adminUser')) {
+            $this->redirect('/index.php?m=admin&c=index');
+        }
         return $this->display();
     }
 
@@ -33,6 +36,11 @@ class LoginController extends Controller {
         
         session('adminUser', $ret);
         return show(1, '登陆成功');
+    }
+
+    public function loginout() {
+        session('adminUser', null);
+        $this->redirect('/index.php?m=admin&c=login&a=index');
     }
 
 }
