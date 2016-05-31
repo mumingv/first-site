@@ -18,7 +18,11 @@ use Think\Controller;
 class MenuController extends CommonController {
 
     public function add(){
-        $this->display();
+        if ($_POST) {
+            print_r($_POST);
+        } else {
+            $this->display();
+        }
         // echo "welcome to singcms";
     }
 
