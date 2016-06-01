@@ -46,6 +46,12 @@ class MenuController extends CommonController {
 
     public function index() {
         $data = array();
+        if (isset($_REQUEST['type']) && in_array($_REQUEST['type'], array(0, 1))) {
+            $data['type'] = intval($_REQUEST['type']);
+            $this->assign('type', $data['type']);
+        } else {
+            $this->assign('type', -1);
+        }
         /**
          * 分页操作逻辑
          */
