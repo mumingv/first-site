@@ -19,7 +19,25 @@ class MenuController extends CommonController {
 
     public function add(){
         if ($_POST) {
-            print_r($_POST);
+            //print_r($_POST);
+            if (!isset($_POST['name']) || !$_POST['name']) {
+                return show(0, '菜单名称不能为空');
+            }
+            if (!isset($_POST['m']) || !$_POST['m']) {
+                return show(0, '模块名称不能为空');
+            }
+            if (!isset($_POST['c']) || !$_POST['c']) {
+                return show(0, '控制器名称不能为空');
+            }
+            if (!isset($_POST['f']) || !$_POST['f']) {
+                return show(0, '方法名称不能为空');
+            }
+
+            $menuId = D("Menu")->insert($_POST);
+            if ($menuId) {
+                return show(1, '新建成功', $menuId );
+            }
+            return show(1, '新增失败', $menuId);
         } else {
             $this->display();
         }
