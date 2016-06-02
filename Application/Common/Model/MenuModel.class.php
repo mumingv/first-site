@@ -18,7 +18,7 @@ class MenuModel extends Model {
     public function getMenus($data, $page, $pageSize = 10) {
         $data['status'] = array('neq', -1);
         $offset = ($page - 1) * $pageSize;
-        $list = $this->_db->where($data)->order('menu_id desc')->limit($offset, $pageSize)->select();
+        $list = $this->_db->where($data)->order('listorder desc, menu_id desc')->limit($offset, $pageSize)->select();
         return $list;
     }
 
@@ -52,6 +52,16 @@ class MenuModel extends Model {
             throw_exception("状态不合法");
         }
         $data['status'] = $status;
+        return $this->_db->where('menu_id='.$id)->save($data);
+    }
+
+    public function updateMenuListorderById($id, $listorder) {
+        if (!$id || !is_numeric($id)) {
+            throw_exception('ID不合法');
+        }
+        $data = array(
+            'listorder' => intval($listorder),
+        );
         return $this->_db->where('menu_id='.$id)->save($data);
     }
 }

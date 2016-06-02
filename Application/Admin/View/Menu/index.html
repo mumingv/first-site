@@ -57,7 +57,7 @@
                     <table class="table table-bordered table-hover singcms-table">
                         <thead>
                         <tr>
-                            <!-- <th width="14">排序</th> -->
+                            <th width="14">排序</th>
                             <th>id</th>
                             <th>菜单名</th>
                             <th>模块名</th>
@@ -69,6 +69,7 @@
                         <tbody>
                         <volist name="menus" id="menu">
                             <tr>
+                                <td><input size="4" type="text" name="listorder[{$menu.menu_id}]" value="{$menu.listorder}" /></td>
                                 <td>{$menu.menu_id}</td>
                                 <td>{$menu.name}</td>
                                 <td>{$menu.m}</td>
@@ -86,11 +87,10 @@
                         </ul>
                     </nav>
                     </form>
-                    <nav>
-                        <ul class="pagination">
-                            
-                        </ul>
-                    </nav>
+
+                    <div>
+                        <button id="button-listorder" type="button" class="btn btn-primary dropdown-toggle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>更新排序</button>
+                    </div>
                     
                 </div>
             </div>

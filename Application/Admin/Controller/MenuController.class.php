@@ -109,5 +109,29 @@ class MenuController extends CommonController {
         }
         return show(0, '没有提交数据');
     }
+
+    public function listorder() {
+        $listorder = $_POST['listorder'];
+        $jumpUrl = $_SERVER['HTTP_REFERER'];
+        $errors = array();
+        if ($listorder) {
+            try {
+                foreach ($listorder as $menuid => $v) {
+                    // 针对每条记录进行更新
+                    $id = D("Menu")->updateMenuListorderById($menuid, $v);
+                    if ($id === false) {
+                        $errors[] = $menuid;
+                    }
+                }
+            } catch (Exception $e) {
+                return show(0, $e->getMessage(), array('jump_url' => $jumpUrl));
+            }
+            if ($errors) {
+                return show(0, '排序失败-'.implode(',', $errors), array('jump_url' => $jumpUrl));
+            }    
+            return show(1, '排序成功', array('jump_url' => $jumpUrl));
+        }
+        return show(0, '排序数据失败', array('jump_url' => $jumpUrl));
+    }
 }
 
