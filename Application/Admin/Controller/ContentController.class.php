@@ -78,8 +78,6 @@ class ContentController extends CommonController {
                 }else{
                     return show(1,'主表插入成功，副表插入失败');
                 }
-
-
             }else{
                 return show(0,'新增失败');
             }
