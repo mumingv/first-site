@@ -215,8 +215,6 @@ class ContentController extends CommonController {
         }
 
         return show(1, '推荐成功',array('jump_url'=>$jumpUrl));
-
-
     }
 }
 
