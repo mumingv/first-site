@@ -58,37 +58,26 @@
         </div>
       </div>
       <!-- 网站右侧信息 -->
-            <div class="col-sm-3 col-md-3">
-        <div class="right-title">
-          <h3>文章排行</h3>
-          <span>TOP ARTICLES</span>
-        </div>
-        <div class="right-content">
-          <ul>
-            <li class="num1 curr">
-              <a href="">习近平谈气候变化</a>
-              <div class="intro">
-                中美双方应该不断挖掘合作潜力、培育合作亮点，加快双边投资协定谈判...
-              </div>
-            </li>
-            <li class="num2"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num3"><a href="">普京回应俄战机被击落</a</li>
-            <li class="num4"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num5"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num6"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num7"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num8"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num9"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num10"><a href="">普京回应俄战机被击落</a></li>
-          </ul>
-        </div>
-        <div class="right-hot">
-          <img src="/Public/images/img5.jpg" alt="">
-        </div>
-        <div class="right-hot">
-          <img src="/Public/images/img6.jpg" alt="">
-        </div>
-      </div>
+      <div class="col-sm-3 col-md-3">
+  <div class="right-title">
+    <h3>文章排行</h3>
+    <span>TOP ARTICLES</span>
+  </div>
+
+  <div class="right-content">
+    <ul>
+      <?php if(is_array($result['rankNews'])): $k = 0; $__LIST__ = $result['rankNews'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?><li class="num<?php echo ($k); ?> curr">
+        <a target="_blank" href="/index.php?c=detail&id=<?php echo ($vo["news_id"]); ?>"><?php echo ($vo["small_title"]); ?></a>
+        <?php if($k == 1): ?><div class="intro">
+          <?php echo ($vo["description"]); ?>
+        </div><?php endif; ?>
+      </li><?php endforeach; endif; else: echo "" ;endif; ?>
+    </ul>
+  </div>
+  <?php if(is_array($result['advNews'])): $k = 0; $__LIST__ = $result['advNews'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?><div class="right-hot">
+    <a target="_blank" href="<?php echo ($vo["url"]); ?>"><img src="<?php echo ($vo["thumb"]); ?>" alt="<?php echo ($vo["name"]); ?>"></a>
+  </div><?php endforeach; endif; else: echo "" ;endif; ?>
+</div>
 
     </div>
   </div>
