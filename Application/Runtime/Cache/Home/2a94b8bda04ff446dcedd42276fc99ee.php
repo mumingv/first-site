@@ -25,6 +25,7 @@
     </div>
   </div>
 </header>
+
 <section>
   <div class="container">
     <div class="row">
@@ -98,7 +99,8 @@
           </dl>
         </div>
       </div>
-      <div class="col-sm-3 col-md-3">
+      <!-- 网站右侧信息 -->
+            <div class="col-sm-3 col-md-3">
         <div class="right-title">
           <h3>文章排行</h3>
           <span>TOP ARTICLES</span>
@@ -129,6 +131,7 @@
           <img src="/Public/images/img6.jpg" alt="">
         </div>
       </div>
+
     </div>
   </div>
 </section>
