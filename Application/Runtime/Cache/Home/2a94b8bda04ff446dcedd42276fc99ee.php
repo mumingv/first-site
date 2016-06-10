@@ -32,13 +32,15 @@
       <div class="col-sm-9 col-md-9">
         <div class="banner">
           <div class="banner-left">
-              <a target="_blank" href="/index.php?c=detail&id=<?php echo ($result['topPicNews'][0]['news_id']); ?>"><img src="<?php echo ($result['topPicNews'][0]['thumb']); ?>" alt=""></a>
+            <div class="banner-info"><span>阅读数</span><i class="news_count node-<?php echo ($result['topPicNews'][0]['news_id']); ?>" news-id="<?php echo ($result['topPicNews'][0]['news_id']); ?>" id="node-<?php echo ($result['topPicNews'][0]['news_id']); ?>">100</i></div>
+            <a target="_blank" href="/index.php?c=detail&id=<?php echo ($result['topPicNews'][0]['news_id']); ?>"><img width="670" height="360" src="<?php echo ($result['topPicNews'][0]['thumb']); ?>" alt=""></a>
           </div>
           <div class="banner-right">
             <ul>
-              <?php if(is_array($result['topSmallNews'])): $i = 0; $__LIST__ = $result['topSmallNews'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
-              <a target="_blank" href="/index.php?c=detail&id=<?php echo ($vo["news_id"]); ?>"><img width="150" height="113" src="<?php echo ($vo["thumb"]); ?>" alt="<?php echo ($vo["title"]); ?>"></a>
+              <?php if(is_array($result['topSmailNews'])): $i = 0; $__LIST__ = $result['topSmailNews'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
+                <a target="_blank" href="/index.php?c=detail&id=<?php echo ($vo["news_id"]); ?>"><img width="150" height="113" src="<?php echo ($vo["thumb"]); ?>" alt="<?php echo ($vo["title"]); ?>"></a>
               </li><?php endforeach; endif; else: echo "" ;endif; ?>
+
             </ul>
           </div>
         </div>
@@ -52,12 +54,13 @@
               <?php echo ($vo["description"]); ?>
             </dd>
             <dd class="news-info">
-              <?php echo ($vo["keywords"]); ?> <span><?php echo (date("Y-m-d H:i:s",$vo["create_time"])); ?></span> 阅读(0)
+              <?php echo ($vo["keywords"]); ?> <span><?php echo (date("Y-m-d H:i:s",$vo["create_time"])); ?></span> 阅读(<i news-id="<?php echo ($vo["news_id"]); ?>" class="news_count node-<?php echo ($vo["news_id"]); ?>"><?php echo ($vo["count"]); ?></i>)
             </dd>
           </dl><?php endforeach; endif; else: echo "" ;endif; ?>
+
         </div>
       </div>
-      <!-- 网站右侧信息 -->
+      <!--网站右侧信息-->
       <div class="col-sm-3 col-md-3">
   <div class="right-title">
     <h3>文章排行</h3>
@@ -83,4 +86,6 @@
   </div>
 </section>
 </body>
+<script src="/Public/js/jquery.js"></script>
+<script src="/Public/js/count.js"></script>
 </html>
